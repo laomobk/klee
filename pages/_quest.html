@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+            
+        @font-face {
+          font-family: "hk4e";
+          src: url("../fonts/hk4e_zh-cn.ttf");
+        }
+
+        .quest-content {
+            width: 50%;
+            margin: auto;
+            height: 50%;
+        }
+
+        .quest-header {
+            text-align: center;
+            font-family: 'hk4e';
+            color: whitesmoke;
+            text-shadow: 0 0 5px black;
+            font-size: 30px;
+        }
+
+        .form-section {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+
+            margin-bottom: 20px;
+        }
+
+        .text-input-box {
+            border-radius: 5px;
+            border: 0;
+
+            height: 30px;
+
+            transition-duration: 0.2s;
+            transition-property: all;
+        }
+
+        .text-input-box:focus {
+            outline: 0;
+            box-shadow: 0 0 5px black;
+        }
+
+        .form-table {
+            width: 100%;
+        }
+
+        .form-table tr {
+            height: 30px;
+        }
+
+        .form-topic {
+            margin-left: 20px;
+            margin-top: 5px;
+            font-family: 'hk4e';
+            color: whitesmoke;
+            font-weight: 100;
+            text-shadow: 0 0 5px black;
+        }
+
+        .quest-text {
+            font-family: 'hk4e';
+            padding-left: 20px;
+            color:whitesmoke;
+            text-shadow: 0 0 3px black;
+        }
+
+        .quest-text:hover {
+            cursor: default;
+        }
+
+        .opt-cell {
+            font-family: 'hk4e';
+            color: whitesmoke;
+            text-shadow: 0 0 3px black;
+            width: 100px;
+        }
+
+        .form-textarea {
+            font-family: 'hk4e';
+            margin: 20px;
+            padding: 0px;
+            resize: none;
+            padding: 10px;
+            border-radius: 10px;
+
+            transition-property: all;
+            transition-duration: 0.3s;
+            
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.8);
+
+            border: 0;
+        }
+
+        .form-textarea:focus {
+            outline: 0;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 1);
+        }
+
+        .function-btn-box {
+            margin: auto;
+            width: 20%;
+            display: flex;
+        }
+
+        .function-btn-box input {
+            margin: auto;
+            height: 25px;
+            width: 50px;
+
+            transition-duration: 0.3s;
+            transition-property: all;
+
+            font-family: 'hk4e';
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quest-header">
+        <h1>调查问卷</h1>
+    </div>
+    <div class="quest-content">
+        <form action="./_query_parse.html" target="_blank">
+            <div class="form-section">
+                <h3 class="form-topic">页面设计</h3>
+                <table class="form-table">
+                    <tr>
+                        <td class="quest-text">您认为“首页”页面的的观感舒适度如何？</td>
+                        <td class="opt-cell"><input type="radio" name="MainComfort" value="bad" required>差</td>
+                        <td class="opt-cell"><input type="radio" name="MainComfort" value="normal" required>中</td>
+                        <td class="opt-cell"><input type="radio" name="MainComfort" value="good" required>好</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="quest-text">您认为“武器”页面的的观感舒适度如何？</td>
+                        <td class="opt-cell"><input type="radio" name="WeaponComfort" value="bad" required>差</td>
+                        <td class="opt-cell"><input type="radio" name="WeaponComfort" value="normal" required>中</td>
+                        <td class="opt-cell"><input type="radio" name="WeaponComfort" value="good" required>好</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="quest-text">您认为“相册”页面的的观感舒适度如何？</td>
+                        <td class="opt-cell"><input type="radio" name="MainAlbum" value="bad" required>差</td>
+                        <td class="opt-cell"><input type="radio" name="MainAlbum" value="normal" required>中</td>
+                        <td class="opt-cell"><input type="radio" name="MainAlbum" value="good" required>好</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="form-section">
+                <h3 class="form-topic">留言</h3>
+                
+                <h4 style="color: whitesmoke; font-family: 'hk4e'; text-shadow: 0 0 3px black; padding-left: 20px; margin-bottom: 0px;">请您为本站点留下宝贵的意见:</h4>
+                <textarea class="form-textarea" name="issue" rows="10" style="width: calc(100% - 60px)"></textarea>
+            </div>
+
+            <div class="form-section">
+                <div class="function-btn-box">
+                    <input type="submit" value="提交">
+                    <input type="reset" value="重置">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        window.onload = () => {
+            checkQueryString();
+        }
+
+        function checkQueryString() {
+            var alert_msg = '';
+            
+            var queries = location.search.substring(1).split('&');
+
+            if (queries == '')
+                return;
+
+            for (i = 0; i < queries.length; ++i) {
+                [k, v] = queries[i].split('=');
+
+                if (v != '')
+                    alert_msg += k + ': ' + v + '\n';
+            }
+
+            alert('您的提交内容为：\n\n' + alert_msg + '\n感谢您的反馈！');
+        }
+    </script>
+</body>
+
+</html>

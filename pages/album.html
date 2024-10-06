@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="/css/album.css" rel="stylesheet" type="text/css" />
+
+        <style>
+            @font-face {
+              font-family: "hk4e";
+              src: url("../fonts/hk4e_zh-cn.ttf");
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="main-box" id="__main_box">
+            <div class="main-content-box">
+                <div class="collection-poster-container" id="__collection_poster_container">
+                    <div class="collection-poster-box" onclick="swipeContainerWith('大世界', 'BigWorld', '15')" id="__collection_poster_box_1">
+                        <div class="collection-poster-img" id="__poster_img_1"></div>
+                        
+                        <div class="poster-title-box">
+                            <h1>大世界</h1>
+                        </div>
+                    </div>
+                    <div class="collection-poster-box" onclick="swipeContainerWith('金苹果群岛', 'GoldenApple', '16')" id="__collection_poster_box_2">
+                        <div class="collection-poster-img" id="__poster_img_2"></div>
+                        
+                        <div class="poster-title-box">
+                            <h1>金苹果群岛</h1>
+                        </div>
+                    </div>
+                    <div class="collection-poster-box" onclick="swipeContainerWith('琉形蜃境', 'VeluriyamMirage', '13')" id="__collection_poster_box_3">
+                        <div class="collection-poster-img" id="__poster_img_3"></div>
+                        
+                        <div class="poster-title-box">
+                            <h1>琉形蜃境</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="album-frame-container" id="__album_frame_container">
+                    <div class="album-frame-window" id="__album_frame_window">
+                        <div class="album-frame-window-top">
+                            <div class="album-frame-window-back-btn" onclick="swipeBackContainer()">x</div>
+                            <div class="album-frame-window-title" id="__album_frame_window_title">Window Title</div>
+                        </div>
+                        
+                        <div class="album-page-frame-box">
+                            <iframe id="__album_page_frame" src="./_album_page.html" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../js/album.js"></script>
+    </body>
+</html>

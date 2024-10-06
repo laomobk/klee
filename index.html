@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>角色介绍：可莉</title>
+
+        <meta charset="utf-8">
+
+        <link href="./css/main.css" rel="stylesheet" type="text/css" />
+        <link href="./css/navi.css" rel="stylesheet" type="text/css" />
+
+        <style>
+            body {
+                background: linear-gradient(rgb(167, 110, 158), rgb(244, 186, 133));
+
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+            
+            #__body {
+                opacity: 0;
+
+                transition-property: all;
+                transition-duration: 0.5s;
+            }
+
+            .frame-box {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+
+                background: linear-gradient(rgb(167, 110, 158), rgb(244, 186, 133));
+                
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+
+                overflow: hidden;
+            }
+
+            iframe {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+
+                transition-property: all;
+                transition-duration: 0.5s;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <div id="__body">
+            <div class="navi-box" id="__navi_box">
+                <div class="menu-panel-box">
+                    <iframe id="__menu_panel_frame" class="menu-panel-frame" src="./pages/_menu_panel.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="navi-bar" id="__navi_bar">
+                    <img style="cursor: pointer;" src="./static/genshin-logo.png" onclick="setFrameUrl('https://ys.mihoyo.com/main/')">
+
+                    <table class="navi-table">
+                        <tr>
+                            <td class="navi-item" onclick="setFrameUrl('./pages/main.html')"><div class="navi-item-stick"></div>首页</td>
+                            <td class="navi-item" onclick="setFrameUrl('./pages/main.html#char-story')"><div class="navi-item-stick"></div>故事</td>
+                            <td class="navi-item" onclick="setFrameUrl('./pages/weapon.html')"><div class="navi-item-stick"></div>武器</td>
+                            <td class="navi-item" onclick="setFrameUrl('./pages/artifact.html')"><div class="navi-item-stick"></div>套装</td>
+                            <td class="navi-item" onclick="setFrameUrl('./pages/album.html')"><div class="navi-item-stick"></div>相册</td>
+                            <td class="navi-item" onclick="switchNaviBox(0, './pages/_menu_panel.html')"><div class="navi-item-stick"></div><span id="__more_text">演示</span></td>
+                            <td class="navi-item" onclick="switchNaviBox(1, './pages/_quest.html')"><div class="navi-item-stick"></div><span id="__more_text_2">问卷</span></td>
+                            <td class="navi-item" onclick="setFrameUrl('./pages/about.html')"><div class="navi-item-stick"></div>关于</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="frame-box">
+                <iframe id="__frame" src="./pages/main.html" frameborder="0"></iframe>
+            </div>
+        </div>
+
+        <script>
+            setTimeout(() => {     
+                var body = document.getElementById('__body');
+                body.style.opacity = '1';
+            }, 500);
+            
+            (() => {
+                    console.log('requesting fullscreen');
+                    document.documentElement.requestFullscreen();
+
+                    console.log('init frame.');
+                    var frame = document.getElementById('__frame');
+                    var menu_frame = document.getElementById('__menu_panel_frame');
+    
+                    frame.addEventListener( "load", function(){  
+                        console.log('frame load complete');
+                        frame.style.opacity = '1';
+
+                        this.removeEventListener( "load", arguments.call, false);  
+                    }, false);
+                    
+                    menu_frame.addEventListener( "load", function(){  
+                        console.log('menu frame load complete');
+                        menu_frame.style.opacity = '1';
+
+                        this.removeEventListener( "load", arguments.call, false);  
+                    }, false);
+            })();
+        </script>
+
+        <script type="text/javascript" src="./js/main.js"></script>
+        <script type="text/javascript" src="./js/navi.js"></script>
+        
+        <audio id="__main_bgm" src="./static/genshin-activity-bgm.mp3" autoplay loop></audio>
+
+        <style>
+            @font-face {
+              font-family: "hk4e";
+              src: url("./fonts/hk4e_zh-cn.ttf");
+            }
+        </style>
+    </body>
+</html>

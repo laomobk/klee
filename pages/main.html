@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <div class="main-box" id="__main_box">
+            <div class="char-box" id="__char_box">
+                <div class="detail-box">
+                    <div class="hr-box"></div>
+                    <div class="name-box" onclick="switchCharBox()"><b>可莉</b>
+                    <p id="__char_sub_title">「琪花星烛」</p>
+                    </div>
+                    <div class="voice-box">
+                        <div class="voice-dot"></div>
+                        <span class="voice-text">
+                            早上好！带可莉出去玩吧！
+                        </span>
+                        <div class="voice-mic" onclick="playAudioClip('__klee_voice')"></div>
+                    </div>
+
+                    <div class="info-box">
+                        <ul>
+                            <li>生日：7月27日</li>
+                            <li>地区：蒙德</li>
+                            <li>所属：西风骑士团</li>
+                            <li>神之眼：火</li>
+                            <li>命之座：四叶草座</li>
+                    </div>
+
+                    <div class="char-slogan" id="__char_slogan">
+                        <img src="../static/klee_slogan.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="char-story"></div>
+
+        <div class="story-box">
+            <div class="story-box-title">
+                <div class="story-box-title-content">角色故事</div>
+            </div>
+            <div class="story-box-nav">
+                <table class="story-box-nav-table">
+                    <tr><td class="story-box-nav-item" onclick="setCharacterStory(0)">
+                        <div id="__story_stick_0" class="story-box-nav-stick"></div>壹</td>
+                    </tr>
+                    
+                    <tr><td class="story-box-nav-item" onclick="setCharacterStory(1)">
+                        <div id="__story_stick_1" class="story-box-nav-stick"></div>贰</td>
+                    </tr>
+                    
+                    <tr><td class="story-box-nav-item" onclick="setCharacterStory(2)">
+                        <div id="__story_stick_2" class="story-box-nav-stick"></div>叁</td>
+                    </tr>
+                    
+                    <tr><td class="story-box-nav-item" onclick="setCharacterStory(3)">
+                        <div id="__story_stick_3" class="story-box-nav-stick"></div>肆</td>
+                    </tr>
+                    
+                    <tr><td class="story-box-nav-item" onclick="setCharacterStory(4)">
+                        <div id="__story_stick_4" class="story-box-nav-stick"></div>伍</td>
+                    </tr>
+                    
+                    <tr><td class="story-box-nav-item" onclick="setCharacterStory(5)">
+                        <div id="__story_stick_5" class="story-box-nav-stick"></div>陆</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-box-left-banner">
+                <img src="../static/design_banner.png">
+            </div>
+            <div class="story-box-right">
+                <div class="story-box-content" id="__story_box_content">
+                    <h2>角色故事 壹</h2>
+                    <p id="__story_content">
+                        三年前，可莉被身为知名冒险家的父母托付给西风骑士团。年幼的可莉就这样和“那位白色的哥哥”一起，与蒙德的“家人们”结下了缘分。可莉对外界一切都抱有纯真的爱与好奇。对于会爆炸的物件，她更是始终投以极度的热忱。在骑士团呵护之下，她得以远离恶意与中伤。小小的少女与骑士团众人缔结了无法割舍的缘分。对可莉来说，被琴关禁闭室的日常、帮助安柏改进兔兔伯爵的日常，或偷偷研制新型炸弹的日常，所有这些，都是她珍贵的宝物。
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <audio id="__klee_voice" src="../static/klee-voice.mp3"></audio>
+        
+        <script type="text/javascript" src="../js/main.js"></script>
+
+        <style>
+            @font-face {
+              font-family: "hk4e";
+              src: url("../fonts/hk4e_zh-cn.ttf");
+            }
+        </style>
+    </body>
+</html>

@@ -1,0 +1,284 @@
+
+
+* {
+    padding: 0;
+}
+
+body {
+    margin: 0px;
+}
+
+.main-box {
+    overflow: hidden;
+    background-image: url(../static/background_2.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    height: 800px;
+}
+
+.main-content-box {
+    display: flex;
+    flex-flow: column;
+
+    overflow:visible;
+
+    position: relative;
+    top: 67px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.weapon-navi {
+    position: relative;
+    top: -67px;
+
+    width: 100%;
+    height: 70px;
+
+    opacity: 0;
+
+    transition-property: all;
+    transition-duration: 1s;
+
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    box-shadow: 0 0 5px black;
+}
+
+.weapon-navi:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.weapon-navi-table {
+    overflow: hidden;
+    margin: auto;
+    height: 70px;
+    width: 140px;
+}
+
+.weapon-img {
+    height: 70px;
+    transition-duration: 0.3s;
+    transition-property: all;
+
+    transform: scale(1);
+
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+.weapon-img:hover {
+    transform: scale(1.2);
+}
+
+.weapon-navi-item:hover {
+    cursor: pointer;
+}
+
+.weapon-stage-box {
+    position: absolute;
+    top: 70px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+
+.weapon-view-left {
+    width: 30%;
+    height: 100%;
+
+    opacity: 0;
+    transition-duration: 1s;
+    transition-property: all;
+}
+
+.weapon-display-box {
+    height: 256px;
+    width: 100%;
+    
+    margin-left: calc(50% - 128px);
+    margin-top: calc(40% - 128px);
+
+    cursor: default;
+}
+
+.weapon-display-image {
+    height: 100%;
+
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+.weapon-display-image:hover {
+    scale: 1.08;
+}
+
+.weapon-display-name-box {
+    width: 256px;
+    text-align: center;
+}
+
+#__weapon_display_name {
+    width: 256px;
+    text-align: center;
+    font-family: 'hk4e';
+    font-size: 25px;
+    color: aliceblue;
+    text-shadow: 0 0 5px black;
+    margin-bottom: 0px;
+
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+
+#__weapon_display_name:hover {
+    scale: 1.05;;
+}
+
+.weapon-display-panel {
+    background-image: url(../static/bg_weapon_panel_4star.png);
+    width: 256px;
+    height: 256px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px;
+
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+
+#__weapon_display_panel_2 {
+    background-image: url(../static/bg_weapon_panel_5star.png);
+}
+
+.weapon-display-panel:hover {
+    scale: 0.98;
+}
+
+#__weapon_display_level {
+    margin-top: 0px;
+    color: gold;
+    font-size: 25px;
+    text-shadow: 0 0 5px gold;
+
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+#__weapon_display_level:hover {
+    scale: 1.05;
+}
+
+.weapon-display-abstract {
+    width: 256px;
+    color: aliceblue;
+    font-family: 'hk4e';
+    font-size: 20px;
+    text-shadow: 0 0 5px black;
+
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+
+.weapon-display-abstract:hover {
+    scale: 1.05;
+}
+
+.weapon-view-right {
+    width: 70%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column;
+}
+
+.weapon-detail-navi-bar {
+    width: 90%;
+    height: 50px;
+    
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+
+    box-shadow: 0 0 10px black;
+
+    margin: 20px auto;
+    opacity: 0;
+
+    transition-duration: 1s;
+    transition-property: all;
+}
+
+.weapon-detail-navi-bar:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.weapon-detail-navi-table-box {
+    width: 50%;
+    height: 100%;
+    margin: auto;
+}
+
+.weapon-detail-navi-table {
+    width: 100%;
+    height: 100%;
+}
+
+.weapon-detail-navi-table td {
+    font-size: 20px;
+    font-family: 'hk4e';
+    text-align: center;
+    color: aliceblue;
+    text-shadow: 0 0 5px black;
+
+    transition-property: all;
+    transition-duration: 0.5s;
+
+}
+
+.weapon-detail-navi-table td:hover {
+    text-shadow: 0 0 5px gold;
+    cursor: pointer;
+}
+
+.weapon-detail-frame-box {
+    margin: 0px auto;
+    margin-top: 10px;
+
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: calc(100% - 60px);
+
+    height: 65%;
+    width: 90%;
+
+    opacity: 0;
+
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.weapon-detail-frame-box:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+    scale: 1.02;
+    cursor: default;
+}
+
+.weapon-detail-frame-box iframe {
+    width: 100%;
+    height: 100%;
+
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+#__weapon_stage_0 {
+    left: 0px;
+}
+
+#__weapon_stage_1 {
+    left: 100%;
+}

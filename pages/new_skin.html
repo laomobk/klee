@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .switch-box {
+            width: 55px;
+            height: 20px;
+
+            background-color: cyan;
+            border-radius: 12px;
+
+            transition-duration: 0.3s;
+            transition-property: all;
+
+            border-style: solid;
+        }
+
+        .switch-box:hover {
+            box-shadow: 0 0 5px black;
+        }
+
+        .switch-circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+
+            background-color: bisque;
+
+            border-radius: 10px;
+
+            transition-duration: 0.3s;
+            transition-property: all;
+
+            left: 9px;
+        }
+
+        .switch-box:hover .switch-circle{
+            box-shadow: 0 0 2px black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let switch_state = 0;
+
+        function onSwitchClick() {
+            var c = document.getElementById('__switch_circle');
+            var box = document.getElementById('__switch_box');
+
+            if (switch_state == 0) {
+                c.style.left = '45px';
+                box.style.backgroundColor = 'gray';
+                c.style.backgroundColor = 'rgba(230, 230, 230)';
+                switch_state = 1;
+            } else {
+                c.style.left = '9px';
+                box.style.backgroundColor = 'cyan';
+                c.style.backgroundColor = 'bisque';
+                switch_state = 0;
+            }
+        }
+    </script>
+
+    <div class="switch-box" onclick="onSwitchClick()" id="__switch_box">
+        <div class="switch-circle" id="__switch_circle"></div>
+    </div>
+</body>
+</html>

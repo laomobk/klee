@@ -1,0 +1,279 @@
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+* {
+    margin: 0px;
+}
+
+body {
+    background-color: aliceblue;
+    background-repeat: no-repeat;
+}
+
+.main-box {
+    background-image: url(../static/background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    height: 800px;
+
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+
+.char-box {
+    transition-property: all;
+    transition-duration: 1s;
+
+    position: relative;
+
+    background-image: url(../static/klee.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+
+    margin: 0px;
+}
+
+.char-box:hover {
+    margin-left: 20px;
+}
+
+.detail-box {
+    padding-top: 150px;
+    padding-left: 200px;
+    width: 500px;
+}
+
+.name-box {
+    transition-property: text-shadow;
+    transition-duration: 0.5s;
+
+    width: 250px;
+
+    cursor: default;
+
+    font-size: 120px;
+    font-family: '宋体';
+    color: whitesmoke;
+    text-shadow: 0 0 5px black;
+}
+
+.name-box:hover {
+    text-shadow: 0 0 5px blanchedalmond;
+    cursor: pointer;
+}
+
+#__char_sub_title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family: 'hk4e';
+    opacity: 0;
+
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+
+.hr-box {
+    border-style: solid;
+    border-color: rgb(225, 189, 144);
+
+    width: 240px;
+}
+
+.voice-box {
+    background-color: rgb(202, 165, 120);
+
+    width: 300px;
+    height: 54px;
+
+    display: flex;
+
+    box-shadow: 0 0 5px;
+}
+
+.voice-dot {
+    background-image: url(../static/voice-dot.jpg);
+    height: 54px;
+    width: 54px;
+    margin: 0;
+    display: inline-block;
+}
+
+.voice-text {
+    vertical-align: middle;
+    padding-top: 15px;
+    color: aliceblue;
+    text-shadow: 0 0 5px black;
+}
+
+.voice-mic {
+    background-image: url(../static/voice-mic.png);
+    background-size: cover;
+
+    width: 54px;
+    height: 54px;
+}
+
+.voice-mic:hover {
+    cursor: pointer;
+}
+
+.info-box {
+    background-color: rgb(0, 0, 0, 0.2);
+    width: 280px;
+    height: 170px;
+
+    margin-top: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 5px rgb(0, 0, 0, 0.6);
+}
+
+.info-box ul li {
+    font-size: 20px;
+    padding-bottom: 10px;
+    color: aliceblue;
+    text-shadow: 0 0 5px black;
+    cursor: default;
+
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+
+.info-box ul li:hover {
+    text-shadow: 0 0 5px gold;
+}
+
+.story-box {
+    height: 450px;
+    width: 100%;
+    display: flex;
+}
+
+.story-box-left-banner {
+    height: 100%;
+    width: 50%;
+
+    overflow: hidden;
+}
+
+.story-box-left-banner img {
+    transition-property: all;
+    transition-duration: 0.8s;
+
+    height: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.story-box-left-banner:hover img {
+    transform: scale(1.05);
+}
+
+.story-box-right {
+    width: 50%;
+}
+
+.story-box-right:hover {
+    cursor: default;
+}
+
+.story-box-content {
+    padding: 50px;
+
+    font-family: '微软雅黑';
+}
+
+.story-box-nav {
+    width: 50px;
+    background-color: black;
+}
+
+.story-box-nav-table {
+    width: 100%;
+    height: 100%;
+}
+
+.story-box-nav-item {
+    text-align: center;
+    color: whitesmoke;
+
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+.story-box-nav-item:hover {
+    cursor: pointer;
+
+    text-shadow: 0 0 10px antiquewhite;
+}
+
+.story-box-nav-stick {
+    position: absolute;
+
+    transition-property: all;
+    transition-duration: 0.5s;
+
+    margin-top: -3px;
+    height: 30px;
+    width: 2px;
+
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.story-box-nav-item:hover .story-box-nav-stick {
+    background-color: antiquewhite;
+}
+
+.story-box-title {
+    height: 100%;
+    background-color: black;
+}
+
+.story-box-title-content {
+    font-size: 30px;
+    color: aliceblue;
+    margin-top: 140px;
+    margin-left: 10px;
+    width: 35px;
+    
+    font-family: 'hk4e';
+}
+
+#__story_content {
+    padding-top: 40px;
+    font-size: 20px;
+    line-height: 28px;
+    
+    font-family: 'hk4e';
+}
+
+#__story_box_content {
+    transition-duration: 0.2s;
+    transition-property: all;
+
+    opacity: 1;
+}
+
+.char-slogan {
+    transition-property: all;
+    transition-duration: 1s;
+
+    margin-left: 50px;
+    opacity: 0;
+}
+
+.name-box:active {
+    scale: 0.98;
+}

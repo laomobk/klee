@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="/css/weapon.css" rel="stylesheet" type="text/css" />
+
+        <style>
+            @font-face {
+              font-family: "hk4e";
+              src: url("../fonts/hk4e_zh-cn.ttf");
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="main-box" id="__main_box">
+            <div class="main-content-box">
+                <div class="weapon-navi" id="__weapon_navi">
+                    <table class="weapon-navi-table">
+                        <tbody>
+                            <tr>
+                                <td class="weapon-navi-item" onclick="onWeaponNaviClick(0)">
+                                    <img src="../static/weapon_dodoco.png" class="weapon-img">
+                                </td>
+                                <td class="weapon-navi-item" onclick="onWeaponNaviClick(1)">
+                                    <img src="../static/weapon_wind.png" class="weapon-img">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="weapon-stage-box" id="__weapon_stage_0">
+                    <div class="weapon-view-left" id="__weapon_view_left">
+                        <div class="weapon-display-box">
+                            <div class="weapon-display-panel">
+                                <img class="weapon-display-image" src="../static/weapon_dodoco.png">
+                                <div class="weapon-display-border"></div>
+                            </div>
+                            
+                            <div class="weapon-display-name-box">
+                                <p id="__weapon_display_name">嘟嘟可故事集</p>
+                                <p id="__weapon_display_level">★★★★</p>
+                            </div>
+
+                            <div class="weapon-display-abstract">
+                                <p id="__weapon_abstract_content">—本封面华丽的童书，内容皆是童言无忌的短小故事，读之令人忍俊不禁。即使业已成年的读者，读到书中天真无邪的冒险故事，也会忍不住神往吧。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="weapon-view-right">
+                        <div class="weapon-detail-navi-bar" id="__weapon_detail_navi_bar">
+                            <div class="weapon-detail-navi-table-box">
+                                <table class="weapon-detail-navi-table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="weapon-detail-navi-item" onclick="onDetailNaviItemClick(0, './_weapon_story_dodoco.html', '')">
+                                                故事
+                                            </td>
+                                            <td class="weapon-detail-navi-item" onclick="onDetailNaviItemClick(1, './_weapon_album_dodoco.html', '')">
+                                                图集
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="weapon-detail-frame-box" id="__weapon_detail_frame_box">
+                            <iframe id="__weapon_detail_frame" src="./_weapon_story_dodoco.html" frameBorder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weapon-stage-box" id="__weapon_stage_1">
+                    <div class="weapon-view-left" id="__weapon_view_left">
+                        <div class="weapon-display-box">
+                            <div class="weapon-display-panel" id="__weapon_display_panel_2">
+                                <img class="weapon-display-image" src="../static/weapon_wind.png">
+                                <div class="weapon-display-border"></div>
+                            </div>
+                            
+                            <div class="weapon-display-name-box">
+                                <p id="__weapon_display_name">四风原典</p>
+                                <p id="__weapon_display_level">★★★★★</p>
+                            </div>
+    
+                            <div class="weapon-display-abstract">
+                                <p id="__weapon_abstract_content">崇信风的无名先民所写的教典珍本。数千年流传的信仰之力得到了风的青睐，饱含祝福与力量。</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="weapon-view-right">
+                        <div class="weapon-detail-navi-bar" id="__weapon_detail_navi_bar">
+                            <div class="weapon-detail-navi-table-box">
+                                <table class="weapon-detail-navi-table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="weapon-detail-navi-item" onclick="onDetailNaviItemClick(0, './_weapon_story_wind.html', '_2')">
+                                                故事
+                                            </td>
+                                            <td class="weapon-detail-navi-item" onclick="onDetailNaviItemClick(1, './_weapon_album_wind.html', '_2')">
+                                                图集
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="weapon-detail-frame-box" id="__weapon_detail_frame_box">
+                            <iframe id="__weapon_detail_frame_2" src="./_weapon_story_wind.html" frameBorder="0"></iframe>
+                        </div>
+                    </div>
+            </div>
+
+            
+            </div>
+        </div>
+
+        <script>
+            (() => {
+                    console.log('init weapon detail frame.');
+                    var frame = document.getElementById('__weapon_detail_frame');
+                    var frame2 = document.getElementById('__weapon_detail_frame_2');
+    
+                    frame.addEventListener( "load", function(){  
+                        console.log('frame 1 load complete');
+                        frame.style.opacity = '1';
+                    }, false);
+
+                    frame2.addEventListener( "load", function(){  
+                        console.log('frame 2 load complete');
+                        frame2.style.opacity = '1';
+                    }, false);
+            })();
+        </script>
+        
+        <script type="text/javascript" src="../js/weapon.js"></script>
+    </body>
+</html>

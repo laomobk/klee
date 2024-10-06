@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Panel</title>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        @font-face {
+            font-family: "hk4e";
+            src: url("../fonts/hk4e_zh-cn.ttf");
+        }
+
+        * {
+            margin: 0px;
+        }
+
+        .menu-panel-body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+
+            background-color: black;
+        }
+
+        .menu-panel-img {
+            width: 100%;
+            height: 100%;
+            
+            opacity: 0.5;
+
+            object-fit: cover;
+
+            transition-property: all;
+            transition-duration: 0.5s;
+        }
+
+        .menu-panel-img:hover {
+            scale: 1.05;
+            opacity: 0.7;
+        }
+
+        #__video_char_demo {
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-panel-body" id="__panel_body">
+        <video id="__video_char_demo" controlslist="nodownload" controls src="https://uploadstatic.mihoyo.com/hk4e/upload/officialsites/202010/可莉game_1603073107_8874.mp4"></video>
+    </div>
+    
+    <script>
+        window.onload = () => {
+            settingBody();
+        };
+
+        window.onresize = () => {
+            settingBody();
+        }
+
+        function settingBody() {
+            console.log('menu panel setting: ' + window.innerWidth + 'x' + window.innerHeight);
+
+            var body = document.getElementById('__panel_body');
+            var video = document.getElementById('__video_char_demo');
+
+            var box_height = window.innerHeight - 66;
+
+            body.style.height = box_height + 'px';
+            body.style.width = window.innerWidth + 'px';
+            video.style.height = box_height + 'px';
+            video.style.width = window.innerWidth + 'px';
+        }
+    </script>
+</body>
+</html>

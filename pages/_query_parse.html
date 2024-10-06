@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>问卷调查</title>
+
+    <style>
+        .text-box {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+            border-radius: 10px;
+            border-style: solid;
+        }
+    </style>
+</head>
+
+<body background="pic/bk8.jpg" style="background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;">
+
+    <div class="text-box" id="__text_box">
+        <h1>填报信息</h1>
+        <hr>
+    </div>
+    <script>
+        var str = window.location.search;
+        var box = document.getElementById('__text_box');
+
+        var sl = str.split('&');
+        sl.forEach((value, index, arr) => {
+            if (index == 0) {
+                value = value.substring(1, value.length);
+            }
+            [k, v] = value.split('=');
+
+            console.log(k + ': ' + v);
+
+            v = decodeURI(v);
+
+            if (index > 0) {
+                box.innerHTML += '<hr>';
+            }
+            box.innerHTML += '<p>' + k + ': ' + v + "</p>"
+        });
+    </script>
+</body>
+
+</html>

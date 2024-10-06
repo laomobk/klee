@@ -1,0 +1,38 @@
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.text-box {
+    font-family: 'hk4e';
+    color: whitesmoke;
+    text-shadow: 0 0 5px black;
+
+    text-align: center;
+
+    width: 100%;
+
+    position: absolute;
+    top: 67px;
+}
+
+.text-box h1 {
+    font-size: 60px;
+}
+
+.text-box h2 {
+    font-size: 45px;
+}
+
+.text-box h3 {
+    font-size: 30px;
+}
+
+.text-box h4 {
+    font-size: 25px;
+}

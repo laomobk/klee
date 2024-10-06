@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            margin: 20px;
+            margin-bottom: 50px;
+            margin-top: 0px;
+        }
+
+        .album-table-box {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: left;
+
+            height: 100%;
+            width: 100%;
+
+            transition-duration: 0.5s;
+            transition-property: all;
+        }
+
+        .album-cell-box img {
+            height: 240px;
+            width: 320px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 10px black;
+
+            transition-duration: 0.3s;
+            transition-property: all;
+
+            margin: 10px;
+            opacity: 0;
+
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .album-cell-box img:hover {
+            scale: 1.05;
+        }
+
+        .album-cell-box img:active {
+            scale: 0.95;
+        }
+
+        .image-preview-box {
+            transition-duration: 0.5s;
+            transition-property: all;
+
+            position: fixed;
+            width: calc(100% - 45px);
+            height: calc(100% - 40px);
+
+            z-index: 999;
+            opacity: 0;
+
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+            background-color: rgba(0, 0, 0, 0.5);
+
+            display: none;
+        }
+
+        .image-preview-box div {
+            width: 100%;
+            height: 80%;
+
+            margin-top: 50px;
+
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .image-preview-box img {
+            height: 500px;
+            margin: auto;
+
+            border-radius: 5px;
+            box-shadow: 0 0 5px black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-preview-box" id="__image_preview_box">
+        <div onclick="closePreview()">
+            <img id="__preview_img" src="../static/weapons/dodoco_stories/img_1.png" onclick="closePreview()">
+        </div>
+    </div>
+
+    <div class="album-table-box" id="__album_table_box">
+        
+    </div>
+
+    <script>
+        const most_img_count = 4;
+        const body_margin = 20;
+        const img_margin = 10;
+        const cdn_url = '../static/albums/';
+
+        window.onload = () => {
+            initAlbumImage();
+
+            fitAllImages();
+            initPreviewBox();
+        }
+
+        window.onresize = () => {
+            fitAllImages();
+            initPreviewBox();
+        }
+
+        function getImgBoxElement(catalog, id) {
+            return `<div class="album-cell-box">
+                        <img class="album-image"
+                            id="__album_image_${id}"
+                            src="${cdn_url}${catalog}/${id}.png"
+                            onclick="openPreview(this)">
+                    </div>`
+        }
+
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            console.log('query string: ' + query);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) { return pair[1]; }
+            }
+            return (false);
+        }
+
+        function showAllImage() {
+            var imgs = document.getElementsByClassName('album-image');
+
+            for (i = 0; i < imgs.length; ++i) {
+                imgs[i].style.opacity = '1';
+            }
+        }
+
+        function fitAllImages() {
+            var winWidth = window.innerWidth;
+            var visWidth = winWidth - body_margin * 2;
+
+            var img_width = visWidth / most_img_count - 2 * img_margin;
+
+            var imgs = document.getElementsByClassName('album-image');
+
+            for (i = 0; i < imgs.length; ++i) {
+                imgs[i].style.width = img_width + 'px';
+                imgs[i].style.height = img_width * (3 / 4) + 'px';
+            }
+        }
+
+        function initPreviewBox() {
+            var box = document.getElementById('__image_preview_box');
+            var img = document.getElementById('__preview_img');
+
+            box.style.height = (window.innerHeight - 80) + 'px';
+        }
+
+        function openPreview(img) {
+            var prev = document.getElementById('__image_preview_box');
+            var prev_img = document.getElementById('__preview_img');
+
+            prev.style.display = 'block';
+            prev_img.src = img.src;
+            setTimeout(() => {
+                prev.style.opacity = '1';
+            }, 100);
+        }
+
+        function closePreview() {
+            var prev = document.getElementById('__image_preview_box');
+
+            prev.style.opacity = '0';
+
+            setTimeout(() => {
+                prev.style.display = 'none';
+            }, 500);
+        }
+
+        function initAlbumImage() {
+            var catalog = getQueryVariable('catalog');
+            var count = parseInt(getQueryVariable('count'));
+
+            console.log('init album image, catalog: ' + catalog + ', count: ' + count);
+
+            var box = document.getElementById('__album_table_box');
+
+            for (i = 0; i < count; ++i) {
+                box.innerHTML += getImgBoxElement(catalog, i);
+            }
+            
+            setTimeout(() => {
+                for (i = 0; i < count; ++i) {
+                    setTimeout(((id) => {
+                        return () => {
+                            var img = document.getElementById('__album_image_' + id);
+                            img.style.opacity = '1';
+                        }
+                    })(i), 150 + 80 * i);
+                }
+            }, 200);
+        }
+    </script>
+</body>
+
+</html>
